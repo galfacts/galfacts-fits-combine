@@ -932,7 +932,7 @@ void combineFITS( const QStringList & inputFilenames, const QString & outputFile
     }
 
     int pad = 2880 - ofp.pos() % 2880;
-    if( pad > 0) {
+    if(0 < pad && pad < 2880) {
         cerr << "Padding with " << pad << " bytes.\n";
         std::vector<char> buff(pad,0);
         if( ! blockWrite( ofp, buff.data(), pad)) {
